@@ -71,14 +71,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Contact us",
+          "href": "https://discord.gg/Wh279Ryt65",
+          "icon": "message-2"
         }
       ]
     }
