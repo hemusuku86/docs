@@ -21,10 +21,9 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "API Reference",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "api-reference/verifyapi"
             ]
           },
           {
