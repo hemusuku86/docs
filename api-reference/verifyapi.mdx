@@ -39,13 +39,19 @@ description: "Verify your tokens."
       Did the user passed our verification or not.
     </ParamField>
     <ParamField path="security[score]" type="float">
-      the suspicious score of user. higher score = more human, lower score = more bot. (0.0-1.0)
+      the suspicion score of user. higher score = more human, lower score = more bot. (0.0-1.0)
+    </ParamField>
+    <ParamField path="security[score_reasons]" type="array">
+      Pro Plan Only; the reasons for score deduction.
     </ParamField>
     <ParamField path="security[url]" type="string">
       the url where the token generated. you can block user if url didn't match with your except.
     </ParamField>
     <ParamField path="user[device_fingerprint]" type="string">
       user's device fingerprint ID.
+    </ParamField>
+    <ParamField path="user[device_values]" type="JSON">
+      Pro Plan Only; user's device fingerprint values.
     </ParamField>
     <ParamField path="user[ip]" type="string">
       user's IP address.
@@ -63,10 +69,12 @@ description: "Verify your tokens."
           "security": {
               "pass": true,
               "score": 1.0,
+              // "score_reasons": [], (Pro Plan Only)
               "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
           },
           "user": {
               "device_fingerprint": "677d41785ab...",
+              // "device_values": {"lang": "en"...}, (Pro Plan Only)
               "ip": "1.2.3.4",
               "user-agent": "Mozilla/5.0 (Windows NT 10.0; ..."
           }
@@ -90,10 +98,12 @@ description: "Verify your tokens."
           "security": {
               "pass": false,
               "score": 0.0,
+              // "score_reasons": ["automated_browser"...], (Pro Plan Only)
               "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
           },
           "user": {
               "device_fingerprint": "b9d721c204a...",
+              // "device_values": {"lang": "en"...}, (Pro Plan Only)
               "ip": "4.3.2.1",
               "user-agent": "Mozilla/5.0 (Windows NT 10.0; ..."
           }
