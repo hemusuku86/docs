@@ -41,9 +41,6 @@ description: "Verify your tokens."
     <ParamField path="security[score]" type="float">
       the suspicion score of user. higher score = more human, lower score = more bot. (0.0-1.0)
     </ParamField>
-    <ParamField path="security[score_reasons]" type="array">
-      Pro Plan Only; the reasons for score deduction.
-    </ParamField>
     <ParamField path="security[url]" type="string">
       the url where the token generated. you can block user if url didn't match with your except.
     </ParamField>
@@ -69,7 +66,6 @@ description: "Verify your tokens."
           "security": {
               "pass": true,
               "score": 1.0,
-              // "score_reasons": [], (Pro Plan Only)
               "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
           },
           "user": {
@@ -98,7 +94,6 @@ description: "Verify your tokens."
           "security": {
               "pass": false,
               "score": 0.0,
-              // "score_reasons": ["automated_browser"...], (Pro Plan Only)
               "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
           },
           "user": {
