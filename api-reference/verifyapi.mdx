@@ -4,3 +4,55 @@ description: "Verify your tokens."
 ---
 
 ## Endpoint
+
+`POST` https://hamutan86.pythonanywhere.com/nonstress/api/verify
+
+## Request
+
+<Columns cols={2}>
+  <Card>
+    <ParamField path="token" type="string">
+      the nonstress token you received from client-side.
+    </ParamField>
+  </Card>
+  <Card>
+    <RequestExample>
+
+    ```json JSON
+    {
+      "token": "a5Eg2Jqjh+F177T3wmnSbarx72Qxbkz8YjZH..."
+    }
+    ```
+
+    </RequestExample>
+  </Card>
+</Columns>
+
+## Response
+
+<Tabs>
+  <Tab title="Verified">
+    ```json
+    {
+        "error": null,
+        "security": {
+            "pass": true,
+            "score": 1.0,
+            "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
+        },
+        "user": {
+            "device_fingerprint": "677d41785ab...",
+            "ip": "1.2.3.4",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; ..."
+        }
+    }
+    ```
+  </Tab>
+  <Tab title="Error">
+    ```json
+    {
+        "error": null
+    }
+    ```
+  </Tab>
+</Tabs>
