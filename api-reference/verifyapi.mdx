@@ -33,7 +33,25 @@ description: "Verify your tokens."
 <Columns cols={2}>
   <Card>
     <ParamField path="error" type="string / null">
-      the nonstress token you received from client-side.
+      will be the error text when an error occurred in verification
+    </ParamField>
+    <ParamField path="security[pass]" type="boolean">
+      Did the user passed our verification or not.
+    </ParamField>
+    <ParamField path="security[score]" type="float">
+      the suspicious score of user. higher score = more human, lower score = more bot. (0.0-1.0)
+    </ParamField>
+    <ParamField path="security[url]" type="string">
+      the url where the token generated. you can block user if url didn't match with your except.
+    </ParamField>
+    <ParamField path="user[device_fingerprint]" type="string">
+      user's device fingerprint ID.
+    </ParamField>
+    <ParamField path="user[ip]" type="string">
+      user's IP address.
+    </ParamField>
+    <ParamField path="user[user-agent]" type="string">
+      user's User-Agent header.
     </ParamField>
   </Card>
   <Card>
@@ -58,7 +76,10 @@ description: "Verify your tokens."
       <Tab title="Error">
       ```json
       {
-          "error": "invalid token"
+          "error": "invalid token",
+          "security": {
+              "pass": false
+          }
       }
       ```
       </Tab>
