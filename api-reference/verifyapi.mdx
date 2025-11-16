@@ -30,29 +30,55 @@ description: "Verify your tokens."
 
 ## Response
 
-<Tabs>
-  <Tab title="Verified">
-    ```json
-    {
-        "error": null,
-        "security": {
-            "pass": true,
-            "score": 1.0,
-            "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
-        },
-        "user": {
-            "device_fingerprint": "677d41785ab...",
-            "ip": "1.2.3.4",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; ..."
-        }
-    }
-    ```
-  </Tab>
-  <Tab title="Error">
-    ```json
-    {
-        "error": null
-    }
-    ```
-  </Tab>
-</Tabs>
+<Columns cols={2}>
+  <Card>
+    <ParamField path="error" type="string / null">
+      the nonstress token you received from client-side.
+    </ParamField>
+  </Card>
+  <Card>
+    <Tabs>
+      <Tab title="Verified">
+      ```json
+      {
+          "error": null,
+          "security": {
+              "pass": true,
+              "score": 1.0,
+              "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
+          },
+          "user": {
+              "device_fingerprint": "677d41785ab...",
+              "ip": "1.2.3.4",
+              "user-agent": "Mozilla/5.0 (Windows NT 10.0; ..."
+          }
+      }
+      ```
+      </Tab>
+      <Tab title="Error">
+      ```json
+      {
+          "error": "invalid token"
+      }
+      ```
+      </Tab>
+      <Tab title="Bot Detected">
+      ```json
+      {
+          "error": null,
+          "security": {
+              "pass": false,
+              "score": 0.0,
+              "url": "https://hamutan86.pythonanywhere.com/nonstress/demo"
+          },
+          "user": {
+              "device_fingerprint": "b9d721c204a...",
+              "ip": "4.3.2.1",
+              "user-agent": "Mozilla/5.0 (Windows NT 10.0; ..."
+          }
+      }
+      ```
+      </Tab>
+    </Tabs>
+  </Card>
+</Columns>
